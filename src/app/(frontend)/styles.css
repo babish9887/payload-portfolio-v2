@@ -1,0 +1,220 @@
+@import "tailwindcss";
+
+
+@font-face {
+      font-family: 'Myfont';
+      src: url('/7AHDUZ4A7LFLVFUIFSARGIWCRQJHISQP.woff2') format('woff2');
+      font-style: normal;
+}
+
+@font-face {
+      font-family: 'Myfont2';
+      src: url('/font-ClzOE_of.ttf') format('ttf');
+      font-style: normal;
+}
+
+@font-face {
+      font-family: 'Myfont3';
+      src: url('/GHM6WVH6MILNYOOCXHXB5GTSGNTMGXZR.woff2') format('woff2');
+      font-style: normal;
+}
+
+
+@font-face {
+      font-family: 'Myfont4';
+      src: url('/KFIAZD4RUMEZIYV6FQ3T3GP5PDBDB6JY.woff2') format('woff2');
+      font-style: normal;
+}
+@font-face {
+      font-family: 'Myfont5';
+      src: url('/X6XYTKIVDUW7GZTZPZNN4EUM5KH54KHF.woff2') format('woff2');
+      font-style: normal;
+    }
+    
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+html,body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family:'Myfont','Myfon1','Myfont2',"Myfont3","Myfont4","Myfont5", sans-serif;
+  overflow-x: hidden;
+}
+body::-webkit-scrollbar{
+      width: 0px;
+}
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+}
+
+@layer components{
+      .heading{
+            @apply  text-center self-center font-bold mb-4 uppercase md:text-[5rem] text-[3.5rem] sm:text-[4rem]  text-slate-700
+          }
+          
+          .service{ 
+                @apply  flex flex-col justify-center items-center gap-y-8 w-full   sm:min-w-[350px]   aspect-[1/0.75] bg-black p-12 sm:p-8 rounded-3xl cursor-default
+          }
+
+          .service-oppose{
+            @apply flex flex-col justify-center items-center gap-y-8  w-full sm:min-w-[350px] aspect-[1/0.75] bg-cyan-400 p-12 sm:p-8 rounded-3xl
+          }
+
+          .btnDiv{
+            @apply  absolute flex justify-center items-center gap-x-1 top-0 left-0 h-full w-full bg-black/30 transition-all duration-500 ease-in-out   -translate-y-full group-hover:translate-y-0
+          }
+
+          .btn{
+            @apply lg:p-3 p-2 text-4xl lg:text-5xl  rounded-full border border-slate-200 hover:bg-white/20 transition-all  backdrop-blur-md left-1/2 top-1/2 text-white font-light
+          }
+
+      }
+.item {
+      position: relative;
+      display: inline-block;
+      padding: 0.5rem 0.75rem;
+  }
+  
+  .item::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px; 
+      background-color: currentColor; 
+      transform: scaleX(0);
+      transform-origin: bottom right;
+      transition: transform 0.3s ease;
+  }
+  
+  .item:hover::before {
+      transform: scaleX(1);
+      transform-origin: bottom left;
+  }
+
+
+  .social {
+      position: relative;
+      overflow: hidden;
+      transition: background-color 0.3s ease;
+      padding: 0.5rem;
+      background-color: #0a0a0a;
+      border-radius: 50%;
+      font-size: 1.2rem;
+      cursor: pointer;
+      opacity: 0;
+  }
+  
+  .social::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: cyan;
+      transform: translateY(105%);
+      transition: transform 0.3s ease;
+      z-index: 0;
+
+  }
+  
+  .social:hover::before {
+      transform: translateY(0);
+  }
+  .social:hover{
+      color:black
+  }
+
+ 
+
+  .item {
+      position: relative; /* Required for pseudo-element positioning */
+      overflow: hidden;  /* Ensures that the pseudo-element doesn't overflow */
+    }
+    
+    .item::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px; 
+      background-color: white; 
+      transform: scaleX(0); 
+      transform-origin: center; 
+      transition: transform 0.3s ease; 
+      z-index: 0;
+    }
+    
+    .item.active::before {
+      transform-origin:center; 
+
+      transform: scaleX(1); 
+    }
+    
+    .item:hover::before {
+      transform-origin:center; 
+
+      transform: scaleX(1); 
+    }
+  
+  .social > * {
+      position: relative;
+      z-index: 1;
+  }
+
+  .hello{
+      position: relative;
+      display: flex;
+      align-items: center;
+      letter-spacing: 2px;
+      font-weight: 600;
+
+  }
+
+  .hello::before, .hello::after{
+      content: '';
+      position: absolute;
+      top:50%;
+      transform:translateY(-50%);
+      width: 20px;
+      height: 2px;
+      background-color: cyan;
+  }
+
+  .hello::before{
+    left: -25px;
+  }
+  .hello::after{
+      right: -25px;
+  }
+
+  .oppose{
+      background-color: cyan;
+  }
+
+  @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-100%);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
