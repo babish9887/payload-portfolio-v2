@@ -37,7 +37,9 @@ const ContactMePage = () => {
     )
   }, [])
 
-  const handleInputChange = (e: any) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>,
+  ) => {
     const { id, value } = e.target
     setFormData({
       ...formData,
@@ -46,7 +48,7 @@ const ContactMePage = () => {
   }
 
   const handleSendEmail = async () => {
-    let toastId = toast.loading('Submitting your Request')
+    const toastId = toast.loading('Submitting your Request')
     // Log the form data to console
     console.log('Form Data:', formData)
 
@@ -89,7 +91,7 @@ const ContactMePage = () => {
         </h1>
         <div className="contactForm flex justify-center items-center relative h-full flex-col sm:flex-row min-h-[500px] w-full max-w-[1000px] bg-slate-800 rounded-md overflow-hidden ">
           <div className=" w-full sm:w-1/2 h-full p-5 sm:min-h-[500px] flex flex-col justify-center items-center gap-3">
-            <h1 className="text-3xl text-center">Let's get in Touch</h1>
+            <h1 className="text-3xl text-center">Let&apos;s get in Touch</h1>
             <div className="w-auto aspect-square">
               <Image
                 src="/git1.png"

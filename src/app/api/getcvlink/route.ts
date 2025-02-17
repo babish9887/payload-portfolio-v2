@@ -16,7 +16,7 @@ async function GetCVLink() {
       { success: true, message: 'Got CV link Successfully', link: cvlink.docs },
       { status: 200 },
     )
-  } catch (e: any) {
+  } catch (e: unknown) {
     console.log(e)
     return NextResponse.json({ success: true, message: 'Internal Server Error' }, { status: 500 })
   }

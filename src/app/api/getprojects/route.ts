@@ -15,7 +15,7 @@ async function GetProjects() {
       { success: true, message: 'Projects fetched Successfully', projects: projects },
       { status: 200 },
     )
-  } catch (e: any) {
+  } catch (e: unknown) {
     console.log(e)
     return NextResponse.json({ success: true, message: 'Internal Server Error' }, { status: 500 })
   }

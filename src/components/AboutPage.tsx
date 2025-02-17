@@ -1,6 +1,5 @@
 'use client'
 import React, { useEffect, useRef, useState } from 'react'
-import { FaDownload } from 'react-icons/fa'
 import { MdOutlineFileDownload } from 'react-icons/md'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/all'
@@ -8,7 +7,7 @@ import Link from 'next/link'
 import { IoIosArrowDown } from 'react-icons/io'
 import MySkills from '../../MySkills.json'
 const AboutPage = () => {
-  const [link, setLink] = useState<any>()
+  const [link, setLink] = useState<string>(' ')
   const skillvalues = MySkills.map((skill) => skill.skill_value)
   const [skillDropDown, setskillDropDown] = useState(false)
   gsap.registerPlugin(ScrollTrigger)
@@ -72,8 +71,7 @@ const AboutPage = () => {
 
         const data = await res.json()
         if (data.success) {
-          setLink(data.link)
-          console.log(data.link)
+          setLink(data.link[0].link)
         }
       } catch (error) {
         console.error('Error fetching projects:', error)
@@ -83,8 +81,6 @@ const AboutPage = () => {
 
     getLinks()
   }, [])
-
-  console.log(link)
 
   const handleClick = () => {
     setskillDropDown(!skillDropDown)
@@ -141,7 +137,7 @@ const AboutPage = () => {
           <div className="div w-full md:w-1/2 px-5 min-h-[200px] flex flex-col justify-center items-center sm:items-start gap-y-8">
             {/* <h1 className='text-5xl line leading-tight font-bold text-center sm:text-left'> <span className='text-cyan-400'>Web Developer</span>, Creative Thinker & Tech enthusiast</h1> */}
             <AnimatedText text="Web Developer, Creative Thinker & Tech Enthusiast" />
-            <Link href={link?.link || ''} target="_blank" rel="noopener noreferrer">
+            <Link href={link || ''} target="_blank" rel="noopener noreferrer">
               <button className="download flex justify-center items-center gap-x-2 bg-cyan-500 hover:bg-cyan-600 px-3 py-2 rounded-lg transition-all ease-linear">
                 Downlaod CV <MdOutlineFileDownload className="text-2xl" />
               </button>
@@ -149,7 +145,7 @@ const AboutPage = () => {
           </div>
           <div className="brief  w-full md:w-[50%] text-xl p-5 text-center sm:text-left">
             <p>
-              I'm a passionate web developer with expertise in both front-end and back-end
+              I&apos;m a passionate web developer with expertise in both front-end and back-end
               technologies. I craft seamless and engaging digital experiences, combining creativity
               with technical skills in{' '}
               <span className="text-cyan-400">HTML, CSS, and JavaScript</span>. My proficiency

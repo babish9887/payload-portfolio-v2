@@ -12,7 +12,7 @@ const PortfolioPage = () => {
   const [projects, setProjects] = useState<any>(null)
   gsap.registerPlugin(ScrollTrigger)
   useEffect(() => {
-    var tl2 = gsap.timeline({
+    const tl2 = gsap.timeline({
       scrollTrigger: {
         trigger: '.pfs',
         scroller: 'body',
