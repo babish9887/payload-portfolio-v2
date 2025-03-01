@@ -112,7 +112,7 @@ const PortfolioPage = () => {
         if (data.success) setProjects(data.projects.docs)
       } catch (error) {
         console.error('Error fetching projects:', error)
-        return null // or you can handle this in another way
+        return null
       }
     }
 
@@ -140,10 +140,9 @@ const PortfolioPage = () => {
                   width={1000}
                   height={1000}
                   alt="portfolio"
-                  className="object-cover w-full"
+                  className="object-cover  w-full"
                 />
-
-                <div className="  absolute flex justify-center items-center gap-x-1 top-0 left-0 h-full w-full bg-black/30 transition-all duration-500 ease-in-out   -translate-y-full group-hover:translate-y-0 backdrop-blur-sm">
+                <div className="btnDiv ">
                   <Link href={project?.githubLink || ''} target="_blank" rel="noopener noreferrer">
                     <button className={`${buttonStyle}`}>
                       <HiOutlineCode />

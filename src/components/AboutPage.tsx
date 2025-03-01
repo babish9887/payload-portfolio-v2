@@ -70,6 +70,7 @@ const AboutPage = () => {
         }
 
         const data = await res.json()
+        
         if (data.success) {
           setLink(data.link[0].link)
         }
