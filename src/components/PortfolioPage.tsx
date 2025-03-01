@@ -136,7 +136,7 @@ const PortfolioPage = () => {
             >
               <div className={`${portfolioDiv}`}>
                 <Image
-                  src={project?.image?.url || '/path/to/placeholder-image.jpg'}
+                  src={project?.imageUrl || '/path/to/placeholder-image.jpg'}
                   width={1000}
                   height={1000}
                   alt="portfolio"

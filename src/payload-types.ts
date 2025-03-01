@@ -159,7 +159,7 @@ export interface Project {
   id: string;
   title: string;
   description: string;
-  image?: (string | null) | Media;
+  imageUrl?: string | null;
   githubLink: string;
   siteLink: string;
   updatedAt: string;
@@ -281,7 +281,7 @@ export interface MediaSelect<T extends boolean = true> {
 export interface ProjectsSelect<T extends boolean = true> {
   title?: T;
   description?: T;
-  image?: T;
+  imageUrl?: T;
   githubLink?: T;
   siteLink?: T;
   updatedAt?: T;

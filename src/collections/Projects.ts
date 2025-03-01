@@ -20,9 +20,8 @@ export const Projects: CollectionConfig = {
       required: true,
     },
     {
-      name: 'image',
-      type: 'upload',
-      relationTo: 'media',
+      name: 'imageUrl',
+      type: 'text',
     },
     {
       name: 'githubLink',
